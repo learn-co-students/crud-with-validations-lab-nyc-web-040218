@@ -1,0 +1,16 @@
+<h1>All Songs List</h1>
+
+<!-- 
+<div>
+  <% @songs.each do |song| %>
+    <%= link_to song.name, song_path(song) %>
+  <% end %>
+</div>
+-->
+
+<% @songs.each do |song| %>
+<div class="song">
+  <span><%= song.name %></span>
+  <%= link_to "Delete", song, method: :delete, data: { confirm: "Really?" } %>
+</div>
+<% end %>
