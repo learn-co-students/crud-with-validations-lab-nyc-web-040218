@@ -8,12 +8,30 @@ class SongsController < ApplicationController
     def edit
         @song = Song.find(params[:id])
     end
+    def update
+        @song = Song.find(params[:id])
+        @song_test = Song.new(post_params(post_params))
+        if @song_test.valid?
+            binding.pry
+            @song.update(post_params(post_params))
+            redirect_to @song
+        else
+            render :edit
+        end
+    end
     def new
         @song = Song.new
     end
     def create
-        @song = Song.new(post_params(song_params))
-        @song = Song.create(song_params)
+        # binding.pry
+        @song = Song.new(post_params(post_params))
+        if @song.valid?
+            @song.save
+            redirect_to @song
+        else
+            render :new
+        end
+        # @song = Song.create(song_params)
     end
 
     private
