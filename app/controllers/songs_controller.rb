@@ -10,14 +10,17 @@ class SongsController < ApplicationController
     end
     def update
         @song = Song.find(params[:id])
-        @song_test = Song.new(post_params(post_params))
-        if @song_test.valid?
-            binding.pry
-            @song.update(post_params(post_params))
+        @song.assign_attributes(post_params(post_params))
+        if @song.valid?
+            @song.save
             redirect_to @song
         else
             render :edit
         end
+    end
+    def destroy
+        Song.find(params[:id]).destroy
+        redirect_to songs_path
     end
     def new
         @song = Song.new
