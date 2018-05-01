@@ -1,0 +1,30 @@
+<h1>Song Index</h1>
+
+<div><%= link_to "Add Song", new_song_path%></div>
+
+<table>
+  <thead>
+    <tr>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Artist</th>
+    <th>Genre</th>
+    </tr>
+  </thead>
+
+<tbody>
+<%= @songs.each do |song|%>
+  <tr>
+  <td><%= song.title %></td>
+  <td><%= song.release_year %></td>
+  <td><%= song.artist_name %></td>
+  <td><%= song.genre %></td>
+  <td>
+  <%= link_to 'Show Song Info', song%>
+  <%= link_to 'Edit Song Info', edit_song_path(song)%>
+  <%= link_to 'Delete Song From Library', method: :delete, data: { confirm: "Are you sure you want to remove this song from your library?"}%>
+  </td>
+  </tr>
+  <%end%>
+  </tbody>
+</table>
