@@ -20,7 +20,12 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to @song
     else
+      
       render :new
+      # saves info but browser can't give user correct url vs. 
+      # redirect_to new_user_path
+      
+
     end
   end
 
