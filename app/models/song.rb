@@ -4,7 +4,7 @@ class Song < ActiveRecord::Base
   validates :released, inclusion: { in: [true, false]}
   validates :release_year, presence: true, allow_blank: true, if: :not_released
   validates :release_year, presence: true, if: :yes_released
-  validates :release_year, numericality: { less_than_or_equal_to: Time.now.year}
+  validates :release_year, numericality: { less_than_or_equal_to: Time.now.year}, if: :yes_released
   validates :artist_name, presence: true
 
   def not_released
