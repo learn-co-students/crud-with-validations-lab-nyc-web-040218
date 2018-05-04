@@ -1,12 +1,14 @@
 <h1>All Songs</h1>
-<ul>
+<tbody>
     <% @songs.each do |song| %>
-        <li>
-            <%= link_to song.title, song %> <%=  song.artist_name %><br>
-            Released: <%= song.released %>
-        </li>
+        <tr>
+            <td>
+                <%= link_to song.title, song %> <%=  song.artist_name %><br>
+                Released: <%= song.released %>
+            </td>
+        </tr>
     <% end %>
-</ul>
+</tbody>
 
 <br><br><br><br>
 <%= link_to "Create a New Song Entry >", new_song_path %>

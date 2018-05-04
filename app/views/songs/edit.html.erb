@@ -5,21 +5,22 @@
     <%= f.text_field :title %><br><br>
 
     <label>Artist</label><br>
-    <%= f.text_field :artist_name, :id => "song[artist_name]" %><br><br>
+    <%= f.text_field :artist_name, :id => "song_artist_name" %><br><br>
 
     <label>Genre</label><br>
-    <%= f.text_field :genre, :id => "song[genre]" %><br><br>
+    <%= f.text_field :genre, :id => "song_genre" %><br><br>
 
-    <%= f.check_box :released, :id => "song[released]" %> <label>Song been released</label><br><br>
+    <%= f.check_box :released, :id => "song_released" %> <label>Song been released</label><br><br>
     
     <label>Release Year (if Released):</label><br>
-    <%= f.number_field :release_year, :id => "song[release_year]" %><br><br>
+    <%= f.number_field :release_year, :id => "song_release_year" %><br><br>
 
     <%= f.submit %>
 <% end %>
 
 <br><br>
-<%= link_to "Delete", @song, method: :delete } %>
+
+<%# <%= link_to "Delete", @song, method: :delete } %>
 
 <br><br><br><br>
 <%= link_to "Cancel", songs_path %>
